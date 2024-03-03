@@ -1,6 +1,7 @@
 package asphalt.abhishek.firstjobapp.job;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -26,9 +27,9 @@ public class JobController {
     }
 
     @GetMapping("/jobs/{id}")
-    public Job getJobById(@PathVariable Long id){
+    public ResponseEntity<Job> getJobById(@PathVariable Long id){
         Job job = jobservice.getJobByID(id);
-        if(job != null) return job;
-        return new Job(null,"Test Title","No Description","00","1000","Your House");
+        if(job != null) return new ResponseEntity<>(job,HttpStatus.OK);
+        return new ResponseEntity<>(job,HttpStatus.NOT_FOUND);
     }
 }
