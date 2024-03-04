@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 @Service
@@ -37,9 +38,12 @@ public class JobServiceImplementor implements JobService {
 
     @Override
     public boolean deleteJobById(Long id) {
-        for(Job job : jobs){
-            if (job.getId().equals(id)){
-                jobs.remove(job);
+        Iterator<Job> iterator = jobs.iterator();
+        while(iterator.hasNext()){
+            Job job = iterator.next();
+            if(job.getId().equals(id)){
+                iterator.remove();
+                return true;
             }
         }
         return false;
