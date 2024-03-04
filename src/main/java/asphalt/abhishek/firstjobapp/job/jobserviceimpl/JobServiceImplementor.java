@@ -14,7 +14,7 @@ import java.util.List;
 public class JobServiceImplementor implements JobService {
 
     private  List<Job> jobs = new ArrayList<>();
-    private Long nextID = 1L;
+    //private Long nextID = 1L;
     @Override
     public List<Job> findAll() {
         return jobs;
@@ -22,7 +22,7 @@ public class JobServiceImplementor implements JobService {
 
     @Override
     public void createJob(Job job) {
-        job.setId(nextID++);
+        //job.setId(nextID++);
         jobs.add(job);
     }
 

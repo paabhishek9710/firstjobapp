@@ -1,12 +1,21 @@
 package asphalt.abhishek.firstjobapp.job;
 
+import jakarta.persistence.*;
+
+@Entity //welcome to persistence
+@Table(name = "job_table")//else the table name will be class name, which here is Job
 public class Job {
+    @Id // primary key issues
+    @GeneratedValue(strategy = GenerationType.IDENTITY)//this helps me from nextID in JobServiceImplementor
     private Long id;
     private String title;
     private String description;
     private String minSalary;
     private String maxSalary;
     private String location;
+
+    public Job() {
+    }//for JPA's use to use Reflections
 
     public Job(Long id, String title, String description, String minSalary, String maxSalary, String location) {
         this.id = id;
