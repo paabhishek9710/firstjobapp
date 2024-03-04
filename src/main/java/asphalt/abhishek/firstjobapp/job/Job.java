@@ -3,7 +3,7 @@ package asphalt.abhishek.firstjobapp.job;
 import jakarta.persistence.*;
 
 @Entity //welcome to persistence
-@Table(name = "job_table")//else the table name will be class name, which here is Job
+//@Table(name = "job_table")//else the table name will be class name, which here is Job
 public class Job {
     @Id // primary key issues
     @GeneratedValue(strategy = GenerationType.IDENTITY)//this helps me from nextID in JobServiceImplementor
