@@ -1,5 +1,6 @@
 package asphalt.abhishek.firstjobapp.job;
 
+import asphalt.abhishek.firstjobapp.company.Company;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -30,6 +31,7 @@ public class JobController {
     @PostMapping("/jobs")
     public ResponseEntity<String> createJob(@RequestBody Job job){
         jobservice.createJob(job);
+        Company c = job.getCompany();
         //return new ResponseEntity<String>("Job added successfully.",HttpStatus.OK);
         return ResponseEntity.ok("Job added successfully.");
     }

@@ -1,5 +1,6 @@
 package asphalt.abhishek.firstjobapp.job;
 
+import asphalt.abhishek.firstjobapp.company.Company;
 import jakarta.persistence.*;
 
 @Entity //welcome to persistence
@@ -13,6 +14,17 @@ public class Job {
     private String minSalary;
     private String maxSalary;
     private String location;
+
+    @ManyToOne
+    private Company company;
+
+    public Company getCompany() {
+        return company;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
+    }
 
     public Job() {
     }//for JPA's use to use Reflections
